@@ -67,16 +67,16 @@ def solver(brd):
 
     if not empty:
         return True
-
-    row, col = empty
+    else:
+        row, col = empty
 
     # try numbers 1 to 9 for every empty box
     for num in range(1, 10):
         if valid(brd, num, row, col):
             brd[row][col] = num
 
-        if solver(brd):
-            return True
+            if solver(brd):
+                return True
 
         brd[row][col] = 0
 
@@ -85,7 +85,9 @@ def solver(brd):
 
 def main():
     
+    print_board(board)
     solver(board)
+    print("\nanswer:\n")
     print_board(board)
 
 
